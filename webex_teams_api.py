@@ -110,4 +110,5 @@ def delete_message():
 
 if __name__ == '__main__':
 
-	me()
+	#me()
+	print("Testing pull requests")
