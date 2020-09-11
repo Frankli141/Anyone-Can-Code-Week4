@@ -52,11 +52,18 @@ def list_people_displayname(dispname):
 	pprint.pprint(response.json())
 
 
-def get_person_detail_ID():
+def get_person_detail_ID(personid):
 	''' Get a person's detail by their unique ID '''
 
-	# <Add your code here>
+	url = 'https://webexapis.com/' + '/v1/people'
 
+	headers = {'Authorization': 'Bearer ' + BOT_TOKEN}
+
+	payload = {'id' : personid}
+	
+	response = requests.get(url, headers=headers, params=payload, verify=False)
+
+	pprint.pprint(response.json())
 
 
 def me():
@@ -157,11 +164,15 @@ if __name__ == '__main__':
 	#me()
 	#get_rooms()
 
-	#PJ - Get People info by email address
+	# PJ - Get People info by email address
 	#mail_input = input("Search user by email, enter email address: ")
 	#ist_people_email(email_input)
 
-	#PJ - Get People info by email address
-	dispname = input("Search user by name, enter name: ")
-	list_people_displayname(dispname)
+	# PJ - Get People info by Displayname address
+	#dispname = input("Search user by name, enter name: ")
+	#list_people_displayname(dispname)
+
+	# PJ - Get People info by Displayname address
+	personid = input("Search user by PersonID: ")
+	get_person_detail_ID(personid)
 	
