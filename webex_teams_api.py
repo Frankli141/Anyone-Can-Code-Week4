@@ -1,3 +1,4 @@
+
 import requests
 import json
 import pprint
@@ -17,6 +18,17 @@ def list_people_email():
 	''' List people by email '''
 
 	# <Add your code here>
+
+	url = 'https://webexapis.com/' + 'v1/people?email=spark%40iain.id.au'
+
+	headers = {'Authorization': 'Bearer ' + BOT_TOKEN}
+	
+	response = requests.get(url, headers=headers, verify=False)
+
+	pprint.pprint(response.json())
+
+	return response
+
 
 
 
